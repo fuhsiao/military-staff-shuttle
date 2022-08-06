@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>訓員專車統計小幫手</title>
 </head>
 <body>
-    <span>訓員人數</span>
-    <input name="number_of_staff" type="number" min="1" max="200" oninput="validity.valid||(value='')">
-    <span>新增專車</span>
-    <input name="place" type="text" placeholder="站別">
-    <input name="price" type="number" placeholder="價錢(來回)" min="0" oninput="validity.valid||(value='');">
-    <button id="add_station">儲存</button>
-    <ul class="stationList"></ul>
-    <a href="compute.html">開始統計</a>
-    <a href="check.html">收費登記</a>
+    <div class="wrapper">
+        <h1 class="pageTitle">選單設定</h1>
+        <div class="content">       
+            <div class="inputBox">
+                <span class="label">訓員人數</span>
+                <input class="cell" name="number_of_staff" type="number" min="1" max="200" oninput="validity.valid||(value='')" style="width: fit-content;">
+            </div>
+            <div class="inputBox">
+                <div class="cell-inline">
+                    <input class="cell" name="place" type="text" placeholder="站別">
+                    <input class="cell" name="price" type="number" placeholder="價錢(來回)" min="0" oninput="validity.valid||(value='');">
+                </div>
+                <button class ="submit" id="add_station">新增</button> 
+            </div>
+            
+            <ul class="stationInfoList"></ul>
+            <a class="btn btn-black" href="check.html">收費表</a>
+            <a class="btn btn-red" href="compute.html">開始登記</a>
+        </div>
+        
+    </div>
+    
 
     <script src="script.js"></script>
     <script src="index.js"></script>

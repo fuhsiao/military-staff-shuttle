@@ -11,20 +11,22 @@ staffNumber_input.value = StaffNumber
 function setStationList() {
     for(let i = 0; i < StationList.length; i++){
         const item = document.createElement('li');
+        item.classList.add('stationItem');
         item.innerHTML = `
-        <span class="del">X</span><span>${StationList[i].place}</span><span>${StationList[i].price}</span>
+        <span class="del">X</span><span class="place">${StationList[i].place} 站</span><span class="price">${StationList[i].price} 元</span>
         `
-        document.querySelector('.stationList').appendChild(item);
+        document.querySelector('.stationInfoList').appendChild(item);
     }
 }
 
 // 新增 車站節點
 function postStation(station) {
     const item = document.createElement('li');
+    item.classList.add('stationItem');
     item.innerHTML = `
-    <span class="del">X</span><span>${station.place}</span><span>${station.price}</span>
+    <span class="del">X</span><span class="place">${station.place} 站</span><span class="price">${station.price} 元</span>
     `
-    document.querySelector('.stationList').appendChild(item);
+    document.querySelector('.stationInfoList').appendChild(item);
 }
 
 // 更新 車站列表 (LocalStorage)
@@ -68,7 +70,7 @@ add_station_btn.addEventListener('click',function(){
 })
 
 // 移除車站
-document.querySelector(".stationList").addEventListener('click',function(e){
+document.querySelector(".stationInfoList").addEventListener('click',function(e){
 
     if(!e.target.classList.contains("del")) return;
     let item = e.target.parentElement

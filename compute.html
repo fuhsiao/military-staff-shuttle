@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>訓員專車統計小幫手</title>
 </head>
 <body>
-    <span>選擇站別</span>
-    <select id="place_selector"></select>
-    <span>選擇訓員</span>
-    <select id="staff_selector" multiple="multiple" onblur="addStaff(this)"></select>
-    <textarea id="result" readonly ></textarea>
-    <button onclick="copyResult()">複製結果</button>
-    <a href="index.html">選單設定</a>
-    <a href="check.html">費用清點</a>
+    <div class="wrapper">
+        <h1 class="pageTitle">專車統計</h1>
+        <div class="content">
+            <div class="inputBox">
+                <span class="label">選擇站別</span>
+                <select class="cell w-50" id="place_selector"></select>
+            </div>
+            <div class="inputBox">
+                <span class="label">選擇訓員</span>
+                <select class="cell w-50" id="staff_selector" multiple="multiple" onblur="addStaff(this)"></select>
+            </div>
+            <div class="inputBox">
+                <br>
+                <textarea class="cell-area" id="result" readonly ></textarea>
+            </div>
+            <div class="inputBox">
+                <button class="btn-red" onclick="copyResult()">複 製</button>
+            </div>
+            <hr style="margin:20px 0px;">
+            <a class="btn" href="index.html">選單設定</a>
+            <a class="btn" href="check.html">費用清點</a>
+            
+        </div>
+    </div>
+    
 
     <script src="script.js"></script>
     <script src="compute.js"></script>
