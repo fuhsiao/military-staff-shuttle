@@ -15,95 +15,9 @@
     <button id="add_station">儲存</button>
     <ul class="stationList"></ul>
     <a href="compute.html">開始統計</a>
-    <a href="check.html">費用清點</a>
-
+    <a href="check.html">收費登記</a>
 
     <script src="script.js"></script>
-    <script>
-        const staffNumber_input = document.querySelector('[name="number_of_staff"]');
-        const place_input = document.querySelector('[name="place"]');
-        const price_input = document.querySelector('[name="price"]');
-        const add_station_btn = document.getElementById("add_station");
-
-        staffNumber_input.value = StaffNumber
-
-        function postStation(station) {
-            const item = document.createElement('li');
-            item.innerHTML = `
-            <span class="del">X</span><span>${station.place}</span><span>${station.price}</span>
-            `
-            document.querySelector('.stationList').appendChild(item);
-        }
-
-        function setStationList() {
-            for(let i = 0; i < StationList.length; i++){
-                const item = document.createElement('li');
-                item.innerHTML = `
-                <span class="del">X</span><span>${StationList[i].place}</span><span>${StationList[i].price}</span>
-                `
-                document.querySelector('.stationList').appendChild(item);
-            }
-        }
-
-
-
-        // 更新車站列表
-        function updateStationList(newArr) {
-            window.localStorage.setItem('stationList', JSON.stringify(newArr));
-        }
-
-        function checkStationExist(place) {
-            for(let i = 0; i < StationList.length; i++){
-                if (StationList[i].place == place){
-                    return true
-                }
-            }
-            return false
-        }
-
-
-        // 新增車站
-        add_station_btn.addEventListener('click',function(){
-            if (place_input.value === '' || price_input.value === '') {
-                alert("請輸入專車 站別和價錢 !")
-                return
-            }
-            if (place_input.value.length > 7) {
-                alert("站別名稱 請勿超過 7 個字 !")
-                return
-            }
-            if (checkStationExist(place_input.value)) {
-                alert("此站別 已存在 !")
-                return
-            }
-
-            let station = new Station(place_input.value, price_input.value, [])
-            StationList.push(station)
-            postStation(station)
-            updateStationList(StationList)
-            place_input.value = ''
-            price_input.value = ''
-        })
-
-
-        // 更新訓員人數
-        staffNumber_input.addEventListener('change',function(e){
-            let num = (e.target.value > 0) ? parseInt(e.target.value) : 0;
-            window.localStorage.setItem('staffNumber', JSON.stringify(num))
-        })
-
-        document.querySelector(".stationList").addEventListener('click',function(e){
-
-            if(!e.target.classList.contains("del")) return;
-            let item = e.target.parentElement
-            item.remove();
-            let itemConent = item.children[1].textContent;
-            let index = StationList.findIndex(s => s.place == itemConent);
-            StationList.splice(index,1)
-            updateStationList(StationList);
-        });
-
-        setStationList()
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
