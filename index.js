@@ -71,11 +71,10 @@ add_station_btn.addEventListener('click',function(){
 
 // 移除車站
 document.querySelector(".stationInfoList").addEventListener('click',function(e){
-
     if(!e.target.classList.contains("del")) return;
     let item = e.target.parentElement
     item.remove();
-    let itemConent = item.children[1].textContent;
+    let itemConent = item.children[1].textContent.split(' ')[0];
     let index = StationList.findIndex(s => s.place == itemConent);
     StationList.splice(index,1)
     updateStationList(StationList);
