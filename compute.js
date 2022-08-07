@@ -86,7 +86,7 @@ function printResult() {
                 text += passenger[j] + ', ';
             }
             else{
-                text += passenger[j] + '\n'
+                text += passenger[j] + '\n\n'
             }    
         }
         
