@@ -18,13 +18,13 @@ for(let i = 0; i < StationList.length; i++) {
 function updateStationList(staffArr) {
 
     // 已登記者 移出原站別
-    for(let i = 0; i < staffArr.length; i++){
-        let index = StationList.findIndex(s => s.passenger.includes(staffArr[i]));
-        if (index > -1){
-            let staffIndex = StationList[index].passenger.indexOf(staffArr[i])
-            StationList[index].passenger.splice(staffIndex,1)
-        }
-    }
+    // for(let i = 0; i < staffArr.length; i++){
+    //     let index = StationList.findIndex(s => s.passenger.includes(staffArr[i]));
+    //     if (index > -1){
+    //         let staffIndex = StationList[index].passenger.indexOf(staffArr[i])
+    //         StationList[index].passenger.splice(staffIndex,1)
+    //     }
+    // }
     
     // 登記 乘客清單至此站
     let place = PlaceList.options[PlaceList.selectedIndex].text
