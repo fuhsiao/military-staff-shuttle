@@ -115,23 +115,32 @@ function copyResult(e){
 // 取得該站別 乘客(訓員)
 function getStaffByPlace() {
     let place = PlaceList.options[PlaceList.selectedIndex].text
-    for(let i = 0; i < StaffList.length; i++){
-        if(StationList[i].place == place) {
-            return StationList[i].passenger
+    let staff = {this:[], other:[]}
+    for(let i = 0; i < StationList.length; i++){
+        if(StationList[i].place != place) {
+            staff['other'].push(...StationList[i].passenger)
+        }
+        else{
+            staff['this'].push(...StationList[i].passenger)
         }
     }
+    return staff
 }
 
-// 根據站別 選取登記的乘客(訓員)選單
+// 根據站別 選取登記的乘客(訓員)選單 & 將非本站的乘客設成非選
 PlaceList.addEventListener('change', function(){
     for(let i = 0; i < StaffList.length; i++){
         StaffList[i].selected = false
+        StaffList[i].disabled = false
     }
 
     let staff = getStaffByPlace()
     for(let i = 0; i < StaffList.length; i++){
-        if(staff.includes(StaffList[i].value)){
+        if(staff['this'].includes(StaffList[i].value)){
             StaffList[i].selected = true
-        }   
+        }
+        else if (staff['other'].includes(StaffList[i].value)){
+            StaffList[i].disabled = true
+        }
     }
 })
