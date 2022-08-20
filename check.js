@@ -9,12 +9,15 @@ function stationInfoSpilt(data) {
     for(let i = 0; i < list.length; i++){
         if(list[i] == '') continue;
         let info = list[i].split(':');
-        let station = info[0].match('[^(]*')[0];
+        let station = info[0].match(/.+?(?=\(\$)/)[0];
+        let price = info[0].match(/\(\$.*/)[0]
         let staff = info[1].split(',');
-        checkBlock.innerHTML += `<span>${station}<span> <br>`
+        checkBlock.innerHTML += `<div style="margin:12px 0px 8px 0px"><span>${station} 站</span>
+                                            <span style="font-size:16px">${price}</span>
+                                </div><br>`
         
         staff.forEach(function(value, index) {
-            checkBlock.innerHTML += `<div><input type='checkbox'><span>${value}<span><div>`
+            checkBlock.innerHTML += `<div><input type='checkbox'><span>${value}</span></div>`
             if (index == staff.length -1){
                 checkBlock.innerHTML +=`<br><br>`
             }
