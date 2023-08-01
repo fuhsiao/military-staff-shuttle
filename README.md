@@ -1,5 +1,6 @@
 # military-staff-shuttle
-> 可用於軍中各單位 專車統計  - [Github-Page](https://fuhsiao.github.io/military-staff-shuttle/)
+資料紀錄於 Localstorage (無需登入及重新設定)  
+可用於軍中各單位 專車統計  - [Github-Page](https://fuhsiao.github.io/military-staff-shuttle/)  
 
 <br>
 
