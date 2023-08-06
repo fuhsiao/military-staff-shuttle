@@ -1,6 +1,8 @@
 # military-staff-shuttle
-資料紀錄於 Localstorage (無需登入及重新設定)  
 可用於軍中各單位 專車統計  - [Github-Page](https://fuhsiao.github.io/military-staff-shuttle/)  
+
+> 主要適用 手機介面 ( 多選列表會顯示為帶有複選框的滾動列表 )  
+> 資料紀錄於 Localstorage ( 無需登入及重新設定 )
 
 <br>
 
